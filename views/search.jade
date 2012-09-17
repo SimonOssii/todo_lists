@@ -1,0 +1,21 @@
+extends layout
+
+block page
+        .container
+            .row.content
+                .span6.offset3
+                    .alert.alert-success.list-font
+                        form(method='post',action='/change')
+                            input(name='getid',type="hidden",value= info._id)  
+                            p
+                                標題:
+                            input.span5(name='change_title',type="text",class="msgbox2",placeholder='',value=info.title)
+                            p
+                                日期/時間:
+                            input.span5.Wdate(name='change_date',type="text",onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})")
+                            p
+                                備註:
+                            textarea.span5(name='change_content',type="text",rows="3")
+                                |#{info.content}
+                            button.btn.btn-primary(type="submit",href='/')
+                                修改

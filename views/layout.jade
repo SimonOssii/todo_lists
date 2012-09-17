@@ -1,0 +1,22 @@
+doctype 5
+html
+    head
+        title Just Do It!
+        meta(name="viewport",content="width=device-width,initial-scale=1.0")
+        meta(http-equiv="content-type",content="text/html;charset=utf-8")
+        link(href="stylesheets/bootstrap.css",rel="stylesheet",type="text/css")
+        link(href="stylesheets/bootstrap-responsive.css",rel="stylesheet",type="text/css")
+        link(href="stylesheets/todolist.css",rel="stylesheet",type="text/css")
+        script(src="javascripts/jquery-1.7.2.js")
+        script(src="javascripts/todolist.js")
+        script(src="javascripts/bootstrap.js")
+        script(language="javascript",type="text/javascript",src="datepicker/WdatePicker.js")
+        
+    body 
+        div#addForm
+        include menubar
+        div 
+            block content
+        div
+            block page
+

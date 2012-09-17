@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    .container
+        .row.content
+            .span6.offset3
+                table.table.table-hover.list-font
+                    thead
+                        tr
+                            th
+                                    完成
+                            th
+                                    標題
+                            th
+                                    所有清單(20)
+                            th
+                                    到期日
+                    tbody
+                        for test in list
+                            tr.info
+                                td
+                                    input.check(name=test._id,type="checkbox",value=list.done)
+                                td.search(name=test._id)
+                                    |#{test.title}
+                                td.search(name=test._id)
+                                    |#{test.content}
+                                td.search(name=test._id)
+                                    |#{test.date}
+                                td
+                                    button.btn.btn-warning.search(name=test._id)
+                                        查詢
+                                td
+                                    button.btn.btn-warning.del(name=test._id)
+                                        刪除
+                                        
+    .navbar.navbar-fixed-bottom
+        .navbar-inner.bar2
+            .container
+                .span6.offset4.msgbox
+                    form(method='post',action='/add')
+                        input(name='add_title',type="text",class="msgbox2",placeholder="新增待辦事項")
+                        input.btn.btn-warning(type='submit',value='增加')
+

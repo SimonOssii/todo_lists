@@ -1,0 +1,39 @@
+.bar2 {
+    padding: 6px;
+}
+.navbar .btn {
+    margin: 0px;
+}
+.content {
+    margin: 55px auto;
+}
+.msgbox {
+    white-space: nowrap;
+    padding-left: 20px;
+}
+.msgbox2 {
+    margin-top: 7px;
+}
+.list {
+    border-left: 5px solid green;
+    margin: 5px 20px;
+    padding: 10px 0;
+    border-radius: 8px;
+}
+input[type="checkbox"] {
+    margin: 5px;
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: fixed;
+}
+.list-font {
+    font-size: 120%;
+}
+.accordion-group,.accordion-inner {
+    border: 0px;
+}
+
+/*一個看不到的form*/
+#addForm {
+    display:none;
+}
