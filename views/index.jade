@@ -12,26 +12,18 @@ block content
                             th
                                     標題
                             th
-                                    所有清單(20)
-                            th
                                     到期日
                     tbody
-                        for test in list
+                        for todo_lists in list
                             tr.info
                                 td
-                                    input.check(name=test._id,type="checkbox",value=list.done)
-                                td.search(name=test._id)
-                                    |#{test.title}
-                                td.search(name=test._id)
-                                    |#{test.content}
-                                td.search(name=test._id)
-                                    |#{test.date}
+                                    input.check(name=todo_lists._id,type="checkbox",value=list.done)
+                                td.search(name=todo_lists._id)
+                                    |#{todo_lists.item.title}
+                                td.search(name=todo_lists._id)
+                                    |#{todo_lists.item.expire_date}
                                 td
-                                    button.btn.btn-warning.search(name=test._id)
-                                        查詢
-                                td
-                                    button.btn.btn-warning.del(name=test._id)
-                                        刪除
+                                    img.del(name=todo_lists._id,src="/images/delete.png")
                                         
     .navbar.navbar-fixed-bottom
         .navbar-inner.bar2
