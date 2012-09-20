@@ -5,18 +5,16 @@ block page
             .row.content
                 .span6.offset3
                     .alert.alert-success.list-font
-                        form(method='post',action='/insert')
+                        form(method='post',action='/add')
                             p
-                                標題:
-                            input.span5(name='list_title',type="text",class="msgbox2",value=add_title)
+                                待辦事項:
+                            input.span5(name='add_title',type="text",class="msgbox2",value=add_title)
                             p
-                                日期/時間:
-                            input.span5.Wdate(name='list_date',type="text",onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})")
+                                說明:
+                            textarea.span5(name='add_desc',type="text",rows="3")
                             p
-                                備註:
-                            textarea.span5(name='list_content',type="text",rows="3")
-                            button.btn.btn-primary(type="submit",href='/')
+                                到期日:
+                            input.span5.Wdate(name='add_date',type="text",onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})")
+                            button.btn.btn-primary(type="submit")
                                 新增
-                            button.btn.btn-primary(href='/')
-                                取消
     

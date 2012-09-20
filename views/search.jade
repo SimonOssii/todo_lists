@@ -8,14 +8,14 @@ block page
                         form(method='post',action='/change')
                             input(name='getid',type="hidden",value= info._id)  
                             p
-                                標題:
+                                待辦事項:
                             input.span5(name='change_title',type="text",class="msgbox2",placeholder='',value=info.item.title)
                             p
-                                備註:
+                                說明:
                             textarea.span5(name='change_desc',type="text",rows="3")
                                 |#{info.item.desc}
                             p
-                                日期/時間:
+                                到期日:
                             input.span5.Wdate(name='change_date',type="text",placeholder=info.item.expire_date,onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})")
                             button.btn.btn-primary(type="submit")
                                 修改

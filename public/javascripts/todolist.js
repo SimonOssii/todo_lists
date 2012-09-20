@@ -1,12 +1,14 @@
 $(document).ready( function(){
     
-
-        //~ if($('.check').attr('value') = 'Y'){
-            //~ $(this).attr('checked',false)
-        //~ }else{
-            //~ $(this).attr('checked',true)
-        //~ }
-
+    $('.check').each(function(){
+        if($(this).attr('value') == 'completed'){
+                $(this).attr('checked',true);
+        }else{
+            if($(this).attr('value') == 'todo'){
+                $(this).attr('checked',false);
+            }
+        }   
+    });
     
     $(".del").bind('click',function(){
         var id = $(this).attr("name");
@@ -21,15 +23,33 @@ $(document).ready( function(){
         $("#search").submit();
         $("#addForm").empty();
     });
+    
     $(".check").bind('click',function(){
-        if($(this).attr('checked')){
-            $(this).attr("value","Y")
-            $(this).attr('checked',true)
+        if($(this).attr('value') == 'todo'){
             var id = $(this).attr("name")
-            $("#addForm").append('<form method="post" action="/check" id="check"><input name="getid" value='+id+'></form>')
-            $("#check").submit();
+            $("#addForm").append('<form method="post" action="/completed" id="completed"><input name="getid" value='+id+'></form>')
+            $("#completed").submit();
             $("#addForm").empty();
-         }
+        }else{
+            if($(this).attr('value') == 'completed'){
+                var id = $(this).attr("name")
+                $("#addForm").append('<form method="post" action="/todo" id="todo"><input name="getid" value='+id+'></form>')
+                $("#todo").submit();
+                $("#addForm").empty();
+            }
+        }
+    });
+    
+    $('.havedone').bind('click',function(){
+        $("#addForm").append('<form method="post" action="/havedone" id="havedone"></form>') //~<input name="getid" value='+id+'>
+        $("#havedone").submit();
+        $("#addForm").empty();
+    });
+    
+    $('.all_lists').bind('click',function(){
+        $("#addForm").append('<form method="post" action="/all_lists" id="all_lists"></form>') //~<input name="getid" value='+id+'>
+        $("#all_lists").submit();
+        $("#addForm").empty();
     })
     
 });

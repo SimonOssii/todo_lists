@@ -28,12 +28,15 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.post('/add', routes.add);
-//~ app.post('/page', routes.page);
+app.post('/page', routes.page);
 //~ app.post('/insert', routes.WriteIntoDB);
 app.post('/search', routes.searchList);
 app.post('/change', routes.change);
 app.post('/del', routes.del);
-app.post('/check', routes.check);
+app.post('/completed', routes.completed);
+app.post('/todo', routes.todo);
+app.post('/havedone', routes.havedone);
+app.post('/all_lists', routes.all_lists);
 
 
 http.createServer(app).listen(app.get('port'), function(){

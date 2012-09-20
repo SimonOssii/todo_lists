@@ -14,7 +14,7 @@ block content
                             th
                                     到期日
                     tbody
-                        for todo_lists in list
+                        for todo_lists in all_lists
                             tr.info
                                 td
                                     input.check(name=todo_lists._id,type="checkbox",value=todo_lists.status)
@@ -24,12 +24,3 @@ block content
                                     |#{todo_lists.item.expire_date}
                                 td
                                     img.del(name=todo_lists._id,src="/images/delete.png")
-                                        
-    .navbar.navbar-fixed-bottom
-        .navbar-inner.bar2
-            .container
-                .span6.offset4.msgbox
-                    form(method='post',action='/page')
-                        input(name='add_title',type="text",class="msgbox2",placeholder="新增待辦事項")
-                        input.btn.btn-warning(type='submit',value='增加')
-

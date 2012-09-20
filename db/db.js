@@ -21,7 +21,7 @@
 
 
 var records = require("mongoose");
-var records_Schema   = records.Schema;
+var records_Schema = records.Schema;
 
 //~ var todo_list = new records.Schema({
   //~ title: String,
@@ -39,7 +39,7 @@ var todo_list = new records.Schema({
     },
     create_date:String,
     status:String
-});
+},{ versionKey: false });
 
 records.model( 'todo_list', todo_list );
 records.connect('mongodb://localhost/todo_lists');
