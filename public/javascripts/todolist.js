@@ -1,14 +1,20 @@
 $(document).ready( function(){
     
     $('.check').each(function(){
-        if($(this).attr('value') == 'completed'){
-                $(this).attr('checked',true);
+        if($(this).attr('value') == 'completed'){               
+            $(this).attr('checked',true);
         }else{
             if($(this).attr('value') == 'todo'){
                 $(this).attr('checked',false);
             }
         }   
     });
+    
+    $('.info').each(function(){
+        if($(this).attr('value') == 'completed'){               
+            $(this).css('text-decoration','line-through');
+        }
+    }); 
     
     $(".del").bind('click',function(){
         var id = $(this).attr("name");

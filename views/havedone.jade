@@ -15,11 +15,14 @@ block content
                                     到期日
                     tbody
                         for todo_lists in done
-                            tr.info
+                            tr.info(value=todo_lists.status)
                                 td
                                     input.check(name=todo_lists._id,type="checkbox",value=todo_lists.status)
                                 td.search(name=todo_lists._id)
-                                    |#{todo_lists.item.title}
+                                    div.title
+                                        |#{todo_lists.item.title}
+                                    div.desc
+                                        |#{todo_lists.item.desc}
                                 td.search(name=todo_lists._id)
                                     |#{todo_lists.item.expire_date}
                                 td

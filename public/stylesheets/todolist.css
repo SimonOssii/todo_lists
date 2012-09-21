@@ -37,3 +37,19 @@ input[type="checkbox"] {
 #addForm {
     display:none;
 }
+
+.title{
+    width:150px;
+    font-size:30px;
+    overflow:hidden;
+    text-overflow:ellipsis; 
+    white-space: nowrap;
+}
+
+.desc{
+    width:150px;
+    font-size:10px;
+    overflow:hidden;
+    text-overflow:ellipsis; 
+    white-space: nowrap;
+}

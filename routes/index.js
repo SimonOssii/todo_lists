@@ -16,6 +16,9 @@ exports.index = function(req, res){
 
 exports.add = function(req, res){
         var now = getClock();
+        if(req.body.add_date ==""){
+            req.body.add_date = "無期限"
+        };
         new todolist({
             item:{
                 title:req.body.add_title,
@@ -30,12 +33,10 @@ exports.add = function(req, res){
 };
 
 exports.page = function(req, res){
-    //~ console.log(req.body.add_title);
     res.render( 'page',{add_title:req.body.add_title});
 }
 
 exports.searchList = function(req,res){
-    //console.log(req.body.getid)
     todolist.
         findById(req.body.getid, function ( err, info ){
             res.render('search',{info:info});
@@ -43,14 +44,15 @@ exports.searchList = function(req,res){
 }
 
 exports.change = function(req,res){
+    if(req.body.change_date ==""){
+        req.body.change_date = "無期限"
+    };
     todolist.
     findByIdAndUpdate(
         req.body.getid,
         {item:{title:req.body.change_title,desc:req.body.change_desc,expire_date:req.body.change_date}},
-        //~ {title:req.body.change_title,date:req.body.change_date,content:req.body.change_content},
         {upsert:true},
-        function(err){
-           // console.log(err);    
+        function(err){  
             res.redirect( '/');
         });
 }
@@ -65,14 +67,12 @@ exports.del = function(req,res){
 }
 
 exports.todo = function(req,res){
-    //~ console.log(req.body.getid)
     todolist.
     findByIdAndUpdate(
         req.body.getid,
         {status:'todo'},
         {upsert:true},
-        function(err){
-           // console.log(err);    
+        function(err){  
             res.redirect( '/');
         });
 }
@@ -85,7 +85,6 @@ exports.completed = function(req,res){
         {status:'completed'},
         {upsert:true},
         function(err){
-            //console.log(err);    
             res.redirect( '/');
         });
 }
